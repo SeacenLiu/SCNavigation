@@ -10,10 +10,16 @@ import UIKit
 
 class SCNavigationController: UINavigationController {
 
+    override func loadView() {
+        super.loadView()
+        // 屏蔽系统的返回手势
+        interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
 
 }
