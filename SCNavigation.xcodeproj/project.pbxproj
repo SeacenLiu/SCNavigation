@@ -12,6 +12,9 @@
 		1421E36F209C9A3F00A4C208 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1421E36E209C9A3F00A4C208 /* Assets.xcassets */; };
 		1421E372209C9A3F00A4C208 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1421E370209C9A3F00A4C208 /* LaunchScreen.storyboard */; };
 		1421E37A209C9A9300A4C208 /* SCNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E379209C9A9300A4C208 /* SCNavigationController.swift */; };
+		1421E37F209CA47700A4C208 /* SCPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E37E209CA47700A4C208 /* SCPushAnimation.swift */; };
+		1421E381209CA48400A4C208 /* SCPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E380209CA48400A4C208 /* SCPopAnimation.swift */; };
+		1421E383209CA8DA00A4C208 /* SCNavControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E382209CA8DA00A4C208 /* SCNavControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		1421E371209C9A3F00A4C208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1421E373209C9A3F00A4C208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1421E379209C9A9300A4C208 /* SCNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNavigationController.swift; sourceTree = "<group>"; };
+		1421E37E209CA47700A4C208 /* SCPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPushAnimation.swift; sourceTree = "<group>"; };
+		1421E380209CA48400A4C208 /* SCPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPopAnimation.swift; sourceTree = "<group>"; };
+		1421E382209CA8DA00A4C208 /* SCNavControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNavControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +60,23 @@
 		1421E366209C9A3F00A4C208 /* SCNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				1421E379209C9A9300A4C208 /* SCNavigationController.swift */,
+				1421E37B209CA29500A4C208 /* SCNavigation */,
 				1421E367209C9A3F00A4C208 /* AppDelegate.swift */,
 				1421E369209C9A3F00A4C208 /* ViewController.swift */,
 				1421E36E209C9A3F00A4C208 /* Assets.xcassets */,
 				1421E370209C9A3F00A4C208 /* LaunchScreen.storyboard */,
 				1421E373209C9A3F00A4C208 /* Info.plist */,
+			);
+			path = SCNavigation;
+			sourceTree = "<group>";
+		};
+		1421E37B209CA29500A4C208 /* SCNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				1421E379209C9A9300A4C208 /* SCNavigationController.swift */,
+				1421E37E209CA47700A4C208 /* SCPushAnimation.swift */,
+				1421E380209CA48400A4C208 /* SCPopAnimation.swift */,
+				1421E382209CA8DA00A4C208 /* SCNavControllerDelegate.swift */,
 			);
 			path = SCNavigation;
 			sourceTree = "<group>";
@@ -135,8 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1421E381209CA48400A4C208 /* SCPopAnimation.swift in Sources */,
 				1421E37A209C9A9300A4C208 /* SCNavigationController.swift in Sources */,
+				1421E383209CA8DA00A4C208 /* SCNavControllerDelegate.swift in Sources */,
 				1421E36A209C9A3F00A4C208 /* ViewController.swift in Sources */,
+				1421E37F209CA47700A4C208 /* SCPushAnimation.swift in Sources */,
 				1421E368209C9A3F00A4C208 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

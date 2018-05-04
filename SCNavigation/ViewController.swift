@@ -9,20 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    static var index = 1
     
     @objc private func nextAction() {
-        ViewController.index += 1
         navigationController!.pushViewController(ViewController(), animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        let color = UIColor.init(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
+        view.backgroundColor = color
         
-        title = "No.\(ViewController.index)"
+        title = "No.\(navigationController!.viewControllers.count)"
         
         let next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextAction))
         navigationItem.rightBarButtonItem = next

@@ -14,12 +14,11 @@ class SCNavigationController: UINavigationController {
         super.loadView()
         // 屏蔽系统的返回手势
         interactivePopGestureRecognizer?.isEnabled = false
+        delegate = self//SCNavControllerDelegate()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
 
 }
