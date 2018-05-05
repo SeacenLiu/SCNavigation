@@ -10,7 +10,7 @@ import UIKit
 
 class SCPushAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.25
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -20,16 +20,17 @@ class SCPushAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         let duration = transitionDuration(using: transitionContext)
         let translationW = UIScreen.main.bounds.width
         fromVC.view.isHidden = true
+        
         containerView.addSubview(toVC.view)
-        toVC.navigationController?.view.superview?.insertSubview(fromVC.snapshot, belowSubview: toVC.navigationController!.view)
+        toVC.navigationController?.view.superview?.insertSubview(fromVC.snapshot!, belowSubview: toVC.navigationController!.view)
         toVC.navigationController?.view.transform = CGAffineTransform(translationX: translationW, y: 0)
         
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .curveLinear, animations: {
-            fromVC.snapshot.transform = CGAffineTransform(translationX: translationW*0.3, y: 0)
+            fromVC.snapshot?.transform = CGAffineTransform(translationX: -translationW*0.3, y: 0)
             toVC.navigationController!.view.transform = CGAffineTransform(translationX: 0, y: 0)
         }) { (_) in
             fromVC.view.isHidden = false
-            fromVC.snapshot.removeFromSuperview()
+            fromVC.snapshot?.removeFromSuperview()
             transitionContext.completeTransition(true)
         }
     }

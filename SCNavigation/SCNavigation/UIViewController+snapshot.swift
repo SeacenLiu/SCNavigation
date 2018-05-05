@@ -8,20 +8,20 @@
 
 import UIKit
 
-private let kAnimationTransitionSnapshot = "SCAnimationTransitionSnapshot"
+private var kSnapshotKey = "SCAnimationTransitionSnapshot"
 
 extension UIViewController {
-    var snapshot: UIView {
+    var snapshot: UIView? {
         get {
-            if let view = objc_getAssociatedObject(self, kAnimationTransitionSnapshot) as? UIView {
+            if let view = objc_getAssociatedObject(self, &kSnapshotKey) as? UIView {
                 return view
             }
-            let view = navigationController!.view.snapshotView(afterScreenUpdates: false)!
-            objc_setAssociatedObject(self, kAnimationTransitionSnapshot, view, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            let view = navigationController!.view.snapshotView(afterScreenUpdates: false)
+            objc_setAssociatedObject(self, &kSnapshotKey, view, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return view
         }
         set {
-            objc_setAssociatedObject(self, kAnimationTransitionSnapshot, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &kSnapshotKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }
