@@ -9,23 +9,13 @@
 import UIKit
 
 class SCNavigationController: UINavigationController {
-
-    override func loadView() {
-        super.loadView()
-        // 屏蔽系统的返回手势
-        interactivePopGestureRecognizer?.isEnabled = false
-        delegate = self
-        // 添加自定义右滑返回手势
-        view.addGestureRecognizer(popRecognizer)
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        navigationBar.barTintColor = .black
-    }
-    
+    // MARK: - public
     /// 返回手势是否与其他手势共存
     public var recognizeSimultaneouslyEnable = false
+    
+    /// pop手势启动范围
+    public var popRecognizerRangeX: CGFloat = 80.0
     
     /// 返回手势是否可用
     public var popRecognizerEnable = true {
@@ -33,9 +23,29 @@ class SCNavigationController: UINavigationController {
             popRecognizer.isEnabled = popRecognizerEnable
         }
     }
+
+    // MARK: - view life cycle
+    override func loadView() {
+        super.loadView()
+        // 屏蔽系统的返回手势
+        interactivePopGestureRecognizer?.isEnabled = false
+        // 设置UINavigationControllerDelegate
+        delegate = self
+        // 添加自定义右滑返回手势
+        view.addGestureRecognizer(popRecognizer)
+    }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // MARK: - 右滑返回交互部分
     /// 自定义右滑返回手势
-    private lazy var popRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragging(recognizer:)))
+    private lazy var popRecognizer: UIPanGestureRecognizer = {
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(dragging(recognizer:)))
+        recognizer.delegate = self
+        return recognizer
+    }()
 
     /// 自定义右滑返回手势的拖拽方法
     @objc private func dragging(recognizer: UIPanGestureRecognizer) {
@@ -93,10 +103,10 @@ extension SCNavigationController: UIGestureRecognizerDelegate {
         if viewControllers.count <= 1 {
             return false
         }
-        if gestureRecognizer.isKind(of: UIPanGestureRecognizer.self) {
+        if gestureRecognizer.isEqual(popRecognizer) {
             let point = touch.location(in: gestureRecognizer.view)
             // TODO: - 设置手势触发区
-            if point.x < 80.0 {
+            if point.x < popRecognizerRangeX {
                 return true
             }
         }
@@ -116,6 +126,7 @@ extension SCNavigationController: UIGestureRecognizerDelegate {
 
 // MARK: - UINavigationControllerDelegate
 extension SCNavigationController: UINavigationControllerDelegate {
+    // 返回自定义动画部分
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
             return SCPushAnimation()
