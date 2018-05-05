@@ -9,9 +9,35 @@
 import UIKit
 
 class SCNavigationController: UINavigationController {
+
+    override func loadView() {
+        super.loadView()
+        // 屏蔽系统的返回手势
+        interactivePopGestureRecognizer?.isEnabled = false
+        delegate = self
+        // 添加自定义右滑返回手势
+        view.addGestureRecognizer(popRecognizer)
+    }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        navigationBar.barTintColor = .black
+    }
+    
+    /// 返回手势是否与其他手势共存
+    public var recognizeSimultaneouslyEnable = false
+    
+    /// 返回手势是否可用
+    public var popRecognizerEnable = true {
+        didSet {
+            popRecognizer.isEnabled = popRecognizerEnable
+        }
+    }
+    
+    /// 自定义右滑返回手势
     private lazy var popRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragging(recognizer:)))
-    
+
+    /// 自定义右滑返回手势的拖拽方法
     @objc private func dragging(recognizer: UIPanGestureRecognizer) {
         // 如果只有1个子控制器,停止拖拽
         if viewControllers.count <= 1 {
@@ -54,19 +80,48 @@ class SCNavigationController: UINavigationController {
             }
         }
     }
+    
+}
 
-    override func loadView() {
-        super.loadView()
-        // 屏蔽系统的返回手势
-        interactivePopGestureRecognizer?.isEnabled = false
-        delegate = self
-        // 添加自定义右滑返回手势
-        view.addGestureRecognizer(popRecognizer)
+// MARK: - UIGestureRecognizerDelegate
+extension SCNavigationController: UIGestureRecognizerDelegate {
+    // 是否接收手势
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if popRecognizerEnable == false {
+            return false
+        }
+        if viewControllers.count <= 1 {
+            return false
+        }
+        if gestureRecognizer.isKind(of: UIPanGestureRecognizer.self) {
+            let point = touch.location(in: gestureRecognizer.view)
+            // TODO: - 设置手势触发区
+            if point.x < 80.0 {
+                return true
+            }
+        }
+        return false
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        navigationBar.barTintColor = .black
+    // 是否与其他手势共存，一般使用默认值(默认返回false：不与任何手势共存)
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if recognizeSimultaneouslyEnable {
+            if otherGestureRecognizer.isKind(of: UIPanGestureRecognizer.self) {
+                return true
+            }
+        }
+        return false
     }
+}
 
+// MARK: - UINavigationControllerDelegate
+extension SCNavigationController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .push {
+            return SCPushAnimation()
+        } else if operation == .pop {
+            return SCPopAnimation()
+        }
+        return nil
+    }
 }
