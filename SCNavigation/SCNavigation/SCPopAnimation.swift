@@ -14,9 +14,15 @@ class SCPopAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let toView = transitionContext.view(forKey: .to)
-        transitionContext.containerView.addSubview(toView!)
-        transitionContext.completeTransition(true)
+        let fromView = transitionContext.view(forKey: .from)!
+        let toView = transitionContext.view(forKey: .to)!
+        let containerView = transitionContext.containerView
+        containerView.addSubview(toView)
+        UIView.transition(from: fromView, to: toView, duration: self.transitionDuration(using: transitionContext), options: .transitionCurlDown) { (_) in
+            fromView.transform = .identity
+            toView.transform = .identity
+            transitionContext.completeTransition(true)
+        }
     }
     
 }

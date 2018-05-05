@@ -15,6 +15,7 @@
 		1421E37F209CA47700A4C208 /* SCPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E37E209CA47700A4C208 /* SCPushAnimation.swift */; };
 		1421E381209CA48400A4C208 /* SCPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E380209CA48400A4C208 /* SCPopAnimation.swift */; };
 		1421E383209CA8DA00A4C208 /* SCNavControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E382209CA8DA00A4C208 /* SCNavControllerDelegate.swift */; };
+		1421E385209D50A500A4C208 /* UIViewController+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421E384209D50A500A4C208 /* UIViewController+snapshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1421E37E209CA47700A4C208 /* SCPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPushAnimation.swift; sourceTree = "<group>"; };
 		1421E380209CA48400A4C208 /* SCPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPopAnimation.swift; sourceTree = "<group>"; };
 		1421E382209CA8DA00A4C208 /* SCNavControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNavControllerDelegate.swift; sourceTree = "<group>"; };
+		1421E384209D50A500A4C208 /* UIViewController+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+snapshot.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				1421E37E209CA47700A4C208 /* SCPushAnimation.swift */,
 				1421E380209CA48400A4C208 /* SCPopAnimation.swift */,
 				1421E382209CA8DA00A4C208 /* SCNavControllerDelegate.swift */,
+				1421E384209D50A500A4C208 /* UIViewController+snapshot.swift */,
 			);
 			path = SCNavigation;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1421E385209D50A500A4C208 /* UIViewController+snapshot.swift in Sources */,
 				1421E381209CA48400A4C208 /* SCPopAnimation.swift in Sources */,
 				1421E37A209C9A9300A4C208 /* SCNavigationController.swift in Sources */,
 				1421E383209CA8DA00A4C208 /* SCNavControllerDelegate.swift in Sources */,
