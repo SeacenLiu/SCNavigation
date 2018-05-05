@@ -37,6 +37,7 @@ class SCNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.tintColor = .black
     }
     
     // MARK: - 右滑返回交互部分

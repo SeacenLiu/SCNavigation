@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         let color = UIColor.init(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
         view.backgroundColor = color
         
-        title = "No.\(navigationController!.viewControllers.count)"
+        title = "No." + String.init(format: "%03d", navigationController!.viewControllers.count)
         
         let next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextAction))
         navigationItem.rightBarButtonItem = next
