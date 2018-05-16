@@ -74,7 +74,8 @@ class SCNavigationController: UINavigationController {
             // 决定pop还是还原
             if tx >= 100 {
                 UIView.animate(withDuration: 0.25, animations: {
-                    self.view.transform = CGAffineTransform(translationX: self.view.bounds.width, y: 0)
+//                    self.view.transform = CGAffineTransform(translationX: self.view.bounds.width, y: 0)
+                    self.view.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
                     priorView.transform = .identity
                 }, completion: { (_) in
                     self.popViewController(animated: false)
