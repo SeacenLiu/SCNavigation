@@ -23,7 +23,7 @@ class SCPushAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         
         containerView.addSubview(toVC.view)
         toVC.navigationController?.view.superview?.insertSubview(fromVC.snapshot!, belowSubview: toVC.navigationController!.view)
-        print(fromVC.snapshot ?? "空的")
+//        print(fromVC.snapshot ?? "空的")
         toVC.navigationController?.view.transform = CGAffineTransform(translationX: translationW, y: 0)
         
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .curveLinear, animations: {

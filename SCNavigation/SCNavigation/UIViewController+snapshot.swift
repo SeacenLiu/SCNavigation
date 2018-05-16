@@ -16,7 +16,7 @@ extension UIViewController {
             if let view = objc_getAssociatedObject(self, &kSnapshotKey) as? UIView {
                 return view
             }
-            let view = navigationController!.view.snapshotView(afterScreenUpdates: false)
+            let view = UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: false)//navigationController!.view.snapshotView(afterScreenUpdates: false)
             objc_setAssociatedObject(self, &kSnapshotKey, view, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return view
         }
