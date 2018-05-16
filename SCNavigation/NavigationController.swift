@@ -8,12 +8,10 @@
 
 import UIKit
 
-class NavigationController: KLTNavigationController {
+class NavigationController: UINavigationController  { //KLTNavigationController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 }

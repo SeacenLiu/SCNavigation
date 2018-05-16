@@ -24,6 +24,27 @@ class ViewController: UIViewController {
         
         let next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextAction))
         navigationItem.rightBarButtonItem = next
+        
+//        if navigationController!.isKind(of: ViolenceController.self) {
+//            let barView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44+20))
+//            barView.backgroundColor = UIColor.red
+//            view.addSubview(barView)
+//            
+//            let m: CGFloat = 30
+//            let w: CGFloat = 30
+//            let rx = UIScreen.main.bounds.width-m-w
+//            let y = (44-w)*0.5+20
+//            let next = UIButton(frame: CGRect(x: rx, y: y, width: w, height: w))
+//            next.backgroundColor = .blue
+//            barView.addSubview(next)
+//            next.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+//            let last = UIButton(frame: CGRect(x: m, y: y, width: w, height: w))
+//            last.backgroundColor = .black
+//            barView.addSubview(last)
+//        } else {
+//            let next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextAction))
+//            navigationItem.rightBarButtonItem = next
+//        }
     }
 
 }

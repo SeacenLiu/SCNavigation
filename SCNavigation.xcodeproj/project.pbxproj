@@ -18,6 +18,7 @@
 		14B0830420AC054600DCD819 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0830320AC054600DCD819 /* NavigationController.swift */; };
 		14B0831820AC07B800DCD819 /* AnimationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B0831520AC07B800DCD819 /* AnimationContoller.m */; };
 		14B0831920AC07B800DCD819 /* KLTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B0831720AC07B800DCD819 /* KLTNavigationController.m */; };
+		14B0831B20AC0A6600DCD819 /* ViolenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0831A20AC0A6600DCD819 /* ViolenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		14B0831520AC07B800DCD819 /* AnimationContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationContoller.m; sourceTree = "<group>"; };
 		14B0831620AC07B800DCD819 /* KLTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTNavigationController.h; sourceTree = "<group>"; };
 		14B0831720AC07B800DCD819 /* KLTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTNavigationController.m; sourceTree = "<group>"; };
+		14B0831A20AC0A6600DCD819 /* ViolenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				1421E370209C9A3F00A4C208 /* LaunchScreen.storyboard */,
 				1421E373209C9A3F00A4C208 /* Info.plist */,
 				14B0830F20AC07AE00DCD819 /* SCNavigation-Bridging-Header.h */,
+				14B0831A20AC0A6600DCD819 /* ViolenceController.swift */,
 			);
 			path = SCNavigation;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				1421E36A209C9A3F00A4C208 /* ViewController.swift in Sources */,
 				1421E37F209CA47700A4C208 /* SCPushAnimation.swift in Sources */,
 				14B0830420AC054600DCD819 /* NavigationController.swift in Sources */,
+				14B0831B20AC0A6600DCD819 /* ViolenceController.swift in Sources */,
 				1421E368209C9A3F00A4C208 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
